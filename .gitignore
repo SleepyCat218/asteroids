@@ -2,6 +2,9 @@
 [Tt]emp/
 [Oo]bj/
 [Ll]ogs/
+Assets/DownloadedAssets/
+Assets/DownloadedAssets.meta
+
 
 # Visual Studio cache directory
 .vs/
