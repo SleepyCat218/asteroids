@@ -2,6 +2,8 @@
 
 public abstract class BaseHealth : MonoBehaviour, IDamageable
 {
+    public delegate void DieDelegate();
+
     [SerializeField] protected GameObject _explosion;
     [SerializeField] protected float _maxHp = 100;
     public float MaxHp

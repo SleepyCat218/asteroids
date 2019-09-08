@@ -3,7 +3,6 @@ using UnityEngine;
 
 public abstract class HazardBaseHealth : BaseHealth
 {
-    public delegate void DieDelegate();
     public event DieDelegate OnDie;
 
     protected override void Die()
