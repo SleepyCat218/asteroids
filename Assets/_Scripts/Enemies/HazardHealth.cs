@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class HazardHealth : BaseHealth
+public abstract class HazardBaseHealth : BaseHealth
 {
     [SerializeField] protected int _score = 10;
 
