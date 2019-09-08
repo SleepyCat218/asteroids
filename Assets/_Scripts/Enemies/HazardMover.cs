@@ -3,9 +3,9 @@
 public class HazardMover : MonoBehaviour
 {
     public float speed = 3;
-    private Rigidbody _rigidbody;
+    protected Rigidbody _rigidbody;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
         _rigidbody.velocity = transform.forward * -1 * speed;

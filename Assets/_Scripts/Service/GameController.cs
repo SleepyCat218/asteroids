@@ -2,6 +2,7 @@
 
 public class GameController : MonoBehaviour
 {
+    [SerializeField] private Transform _player;
     [SerializeField] private GameSceneGuiScript _gui;
     [SerializeField] private Transform _projectilesParent, _objectsParent;
 
@@ -46,6 +47,11 @@ public class GameController : MonoBehaviour
 
         _scoreManager = GetComponent<ScoreManager>();
         _scoreManager.SetGuiScript(_gui);
+        PlayerBaseHealth playerHealth = _player.GetComponent<PlayerBaseHealth>();
+        if (playerHealth != null)
+        {
+            playerHealth.OnDie += EndGame;
+        }
     }
 
     public void AddScore(int scoreValue)

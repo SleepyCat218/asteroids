@@ -28,8 +28,6 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
-        //_startScene = SceneManager.GetSceneByBuildIndex(0);
-        //_gameScene = SceneManager.GetSceneByBuildIndex(1);
     }
 
     public void StartGame()

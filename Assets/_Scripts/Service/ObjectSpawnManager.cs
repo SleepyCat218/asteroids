@@ -30,11 +30,16 @@ public class ObjectSpawnManager : MonoBehaviour
                 Vector3 spawnPosition = new Vector3(Random.Range(-_spawnValues.x, _spawnValues.x), _spawnValues.y, _spawnValues.z);
                 Quaternion spawnRotation = Quaternion.identity;
                 GameObject newObject = Instantiate(spawnedObject, spawnPosition, spawnRotation);
+                HazardBaseHealth enemyHealth = newObject.GetComponent<HazardBaseHealth>();
+                EnemyScoreReward enemyScore = newObject.GetComponent<EnemyScoreReward>();
+                if(enemyHealth != null && enemyScore != null)
+                {
+                    enemyHealth.OnDie += enemyScore.AddScore;
+                }
                 newObject.transform.parent = GameController.Instance.ObjectsParent;
                 yield return new WaitForSeconds(objectSpawnWait);
             }
             yield return new WaitForSeconds(objectWaveWait);
         }
     }
-
 }

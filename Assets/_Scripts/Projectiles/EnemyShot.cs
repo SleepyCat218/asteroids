@@ -4,7 +4,7 @@ public class EnemyShot : BaseShotBehaviour
 {
     protected override void HitOpponent(Collider opponent)
     {
-        PlayerHealth player = opponent.GetComponent<PlayerHealth>();
+        PlayerBaseHealth player = opponent.GetComponent<PlayerBaseHealth>();
 
         if (player)
         {

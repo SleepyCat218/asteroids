@@ -4,13 +4,13 @@ public abstract class BaseBonus : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        PlayerController player = other.GetComponent<PlayerController>();
-        if (player)
+        IBonusGetter bonusGetter = other.GetComponent<IBonusGetter>();
+        if (bonusGetter != null)
         {
-            ApplyBonus(player);
+            ApplyBonus(bonusGetter);
             Destroy(gameObject);
         }
     }
 
-    protected abstract void ApplyBonus(PlayerController player);
+    protected abstract void ApplyBonus(IBonusGetter bonusGetter);
 }

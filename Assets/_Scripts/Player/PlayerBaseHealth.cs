@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerHealth : BaseHealth
+public abstract class PlayerBaseHealth : BaseHealth
 {
+    public event DieDelegate OnDie;
+
     [SerializeField] private Slider _healthBar;
 
     public override float Hp
@@ -30,7 +32,7 @@ public class PlayerHealth : BaseHealth
 
     protected override void Die()
     {
-        GameController.Instance.EndGame();
+        OnDie?.Invoke();
         base.Die();
     }
 }
