@@ -14,11 +14,6 @@ public class EnemyShipMover : HazardMover
     [SerializeField] private float _currentSpeed;
     private float _targetManeuver;
 
-    protected override void Awake()
-    {
-        base.Awake();
-    }
-
     void Start()
     {
         _currentSpeed = _rigidbody.velocity.z;
