@@ -1,12 +1,14 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public abstract class HazardBaseHealth : BaseHealth
 {
-    [SerializeField] protected int _score = 10;
+    public delegate void DieDelegate();
+    public event DieDelegate OnDie;
 
     protected override void Die()
     {
-        GameController.Instance.AddScore(_score);
+        OnDie?.Invoke();
         base.Die();
     }
 
