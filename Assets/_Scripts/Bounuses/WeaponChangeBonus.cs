@@ -4,8 +4,8 @@ public class WeaponChangeBonus : BaseBonus
 {
     [SerializeField] private Weapon _weapon;
 
-    protected override void ApplyBonus(PlayerController player)
+    protected override void ApplyBonus(IBonusGetter bonusGetter)
     {
-        player.ChangeWeapon(_weapon);
+        bonusGetter.ChangeWeapon(_weapon);
     }
 }
