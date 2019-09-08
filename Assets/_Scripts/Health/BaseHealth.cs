@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class BaseHealth : MonoBehaviour, IDamageable
+public abstract class BaseHealth : MonoBehaviour, IDamageable
 {
     [SerializeField] protected GameObject _explosion;
     [SerializeField] protected float _maxHp = 100;
@@ -44,7 +44,7 @@ public class BaseHealth : MonoBehaviour, IDamageable
         if (_isDead) return;
         if (_currentHp > 0)
         {
-            Hp -= damageValue;
+            Hp -= DamageHandling(damageValue);
         }
         if (_currentHp <= 0)
         {
@@ -52,6 +52,8 @@ public class BaseHealth : MonoBehaviour, IDamageable
             Die();
         }
     }
+
+    protected abstract float DamageHandling(float damageValue);
 
     protected virtual void Die()
     {

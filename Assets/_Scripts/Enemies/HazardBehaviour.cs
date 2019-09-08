@@ -2,17 +2,17 @@
 
 public class HazardBehaviour : MonoBehaviour
 {
-    private HazardHealth _health;
+    private HazardBaseHealth _health;
     [SerializeField] private float _collisionDamage = 30f;
 
     private void Awake()
     {
-        _health = GetComponent<HazardHealth>();
+        _health = GetComponent<HazardBaseHealth>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
+        PlayerBaseHealth playerHealth = other.GetComponent<PlayerBaseHealth>();
         if (playerHealth)
         {
             playerHealth.GetDamage(_collisionDamage);
